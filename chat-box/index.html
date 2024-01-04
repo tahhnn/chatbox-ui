@@ -4,6 +4,13 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
 
   <body>
@@ -66,16 +73,62 @@ font-family: 'JetBrains Mono', monospace;
 font-weight: 600;
 font-size: 12px;
 }
-.button_active{
-    background-color: #9CD9DE;
-    border-radius: 10px
+
+.theme1{
+  background-color: #9CD9DE;
+  color: black;
+  transition: all 0.2s ease-in-out;
 }
-.imta-flex input:focus + .imta-more_chat {
-    /* Thay đổi CSS của phần tử div khi input được focus */
-    /* Ví dụ: */
-    background-color: red;
-    /* Thay đổi màu nền của phần tử div */
-  }`;
+.theme2{
+  background-color: black;
+  color: white;
+  transition: all 0.2s ease-in-out;
+
+}
+.theme3{
+  background-color: rgba(128,128,128,1);
+  color: white;
+  transition: all 0.2s ease-in-out;
+
+}
+  .scale-up-br {
+    -webkit-animation: scale-up-br 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: scale-up-br 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
+  @keyframes scale-up-br {
+    0% {
+      -webkit-transform: scale(0.5);
+              transform: scale(0.5);
+      -webkit-transform-origin: 100% 100%;
+              transform-origin: 100% 100%;
+    }
+    100% {
+      -webkit-transform: scale(1);
+              transform: scale(1);
+      -webkit-transform-origin: 100% 100%;
+              transform-origin: 100% 100%;
+    }
+  }
+  
+  .scale-up-tl {
+    -webkit-animation: scale-up-tl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+            animation: scale-up-tl 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  }
+  @keyframes scale-up-tl {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-transform-origin: 0% 0%;
+            transform-origin: 0% 0%;
+  }
+}
+  `;
 
         document.head.appendChild(style);
 
@@ -95,7 +148,7 @@ font-size: 12px;
     </svg>
 </div>
 <div id="chat-popup"
-    class="imta-hidden imta-w-[50%] imta-fixed imta-bottom-0 imta-right-0 imta-max-h-full imta-max-w-screen imta-bg-white imta-rounded-md imta-shadow-md imta-flex imta-flex-col imta-transition-all imta-text-sm">
+    class="imta-hidden scale-up-br imta-w-[50%] imta-fixed imta-bottom-0 imta-right-0 imta-max-h-full imta-max-w-screen imta-bg-white imta-rounded-md imta-shadow-md imta-flex imta-flex-col imta-transition-all imta-text-sm">
     <div id="chat-header"
         class="imta-flex imta-justify-between imta-items-center imta-p-4 imta-bg-gray-800 imta-text-white ">
         <h3 class="imta-m-0 imta-text-lg imta-leading-none imta-flex imta-gap-1">
@@ -127,27 +180,27 @@ font-size: 12px;
     <div id="chat-messages" class="imta-flex-1 imta-overflow-y-auto imta-m-3">
         <div class="imta-flex imta-flex-col imta-items-center">
             <p class="imta-text-center imta-p-2">Choose a conversation style</p>
-            <ul class="imta-flex imta-bg-[#D9F9F4] imta-justify-around imta-items-center imta-mb-4 imta-p-1 imta-border-[1px] imta-rounded-md imta-border-gray-300 imta-font-semibold imta-py-1">
-                <li>
-                    <button class="button__style imta-py-2 imta-px-4 imta-p-2 imta-flex-1 imta-inline button_active">Creative</button>
+            <ul class="imta-flex imta-bg-[#D9F9F4] imta-justify-around imta-items-center 	 imta-mb-4 imta-p-1 imta-border-[1px] imta-rounded-md imta-border-gray-300 imta-font-semibold imta-py-1">
+                <li id="li__style">
+                    <button class="button__style imta-py-2 imta-px-4 imta-rounded-md imta-p-2 imta-flex-1 imta-inline imta-transition imta-delay-150 imta-ease-in-out	  button_active">Creative</button>
                 </li>
-                <li>
-                    <button class="button__style imta-p-2 imta-flex-1 imta-px-4 imta-p-2 imta-inline">Balanced</button>
+                <li id="li__style">
+                    <button class="button__style imta-p-2 imta-flex-1 imta-px-4 imta-rounded-md imta-p-2 imta-inline imta-transition imta-delay-150 imta-ease-in-out	 ">Balanced</button>
                 </li>
-                <li>
-                    <button class="button__style imta-p-2 imta-flex-1 imta-px-4 imta-p-2 imta-inline">Preise</button>
+                <li id="li__style">
+                    <button class="button__style imta-p-2 imta-flex-1 imta-px-4 imta-rounded-md imta-p-2 imta-inline imta-transition imta-delay-150 imta-ease-in-out	 ">Preise</button>
                 </li>
             </ul>
         </div>
         <div class="imta-flex imta-justify-end imta-mb-3">
-            <div class="imta-bg-gray-800 imta-text-white imta-rounded-lg imta-py-2 imta-px-4 imta-max-w-[70%]">
+            <div id="imta-chat-message" class="imta-bg-gray-800 imta-text-white imta-rounded-lg imta-py-2 imta-px-4 imta-max-w-[70%]">
                 Hi
             </div>
         </div><div class="imta-flex imta-mb-3">
             <div class="imta-reply imta-bg-gray-200 imta-text-black imta-rounded-lg imta-py-2 imta-px-4 imta-max-w-[70%]" id="chat-reply-23vprb750"><p>Chào bạn! Bạn cần giúp đỡ về vấn đề nào?</p>
 </div>
         </div><div class="imta-flex imta-justify-end imta-mb-3">
-            <div class="imta-bg-gray-800 imta-text-white imta-rounded-lg imta-py-2 imta-px-4 imta-max-w-[70%]">
+            <div id="imta-chat-message" class="imta-bg-gray-800 imta-text-white imta-rounded-lg imta-py-2 imta-px-4 imta-max-w-[70%]">
                 Thẻ form trong HTML
             </div>
         </div>
@@ -186,12 +239,18 @@ font-size: 12px;
         </div></div>
     <div id="chat-input-container" class="imta-p-4 imta-border-t imta-border-gray-200">
         <div class="imta-flex imta-space-x-4 imta-items-center imta-justify-end imta-w-full ">
-            <div class=" imta-more_chat"><button><svg xmlns="http://www.w3.org/2000/svg" height="30" width="30" viewBox="0 0 512 512"><path d="M168.2 384.9c-15-5.4-31.7-3.1-44.6 6.4c-8.2 6-22.3 14.8-39.4 22.7c5.6-14.7 9.9-31.3 11.3-49.4c1-12.9-3.3-25.7-11.8-35.5C60.4 302.8 48 272 48 240c0-79.5 83.3-160 208-160s208 80.5 208 160s-83.3 160-208 160c-31.6 0-61.3-5.5-87.8-15.1zM26.3 423.8c-1.6 2.7-3.3 5.4-5.1 8.1l-.3 .5c-1.6 2.3-3.2 4.6-4.8 6.9c-3.5 4.7-7.3 9.3-11.3 13.5c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c5.1 0 10.2-.3 15.3-.8l.7-.1c4.4-.5 8.8-1.1 13.2-1.9c.8-.1 1.6-.3 2.4-.5c17.8-3.5 34.9-9.5 50.1-16.1c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9zM144 272a32 32 0 1 0 0-64 32 32 0 1 0 0 64zm144-32a32 32 0 1 0 -64 0 32 32 0 1 0 64 0zm80 32a32 32 0 1 0 0-64 32 32 0 1 0 0 64z"/></svg></button></div>
-            <input value="Tạo form đăng nhập trong HTML" type="text" id="chat-input"
-                class="focus:imta-grow  imta-border imta-border-gray-300 imta-rounded-md imta-px-4 imta-py-2 imta-transition-all imta-outline-none imta-w-5/6"
-                placeholder="Type your message...">
-            <button id="chat-submit"
-                class="imta-bg-gray-800 imta-text-white imta-rounded-md imta-px-4 imta-py-2 imta-cursor-pointer">Gửi</button>
+            <div class="imta-more_chat imta-flex imta-items-center imta-bg-gray-800 imta-p-2  imta-rounded-full"><button><svg class="imta-fill-white" viewBox="0 0 24 24" height="25" width="25" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 2C17.5228 2 22 6.47715 22 12C22 12.2628 21.9899 12.5232 21.97 12.7809C21.5319 12.3658 21.0361 12.0111 20.4958 11.73C20.3532 7.16054 16.6041 3.5 12 3.5C7.30558 3.5 3.5 7.30558 3.5 12C3.5 13.4696 3.87277 14.8834 4.57303 16.1375L4.72368 16.4072L3.61096 20.3914L7.59755 19.2792L7.86709 19.4295C9.04305 20.0852 10.3592 20.4531 11.73 20.4958C12.0111 21.0361 12.3658 21.5319 12.7809 21.97C12.5232 21.9899 12.2628 22 12 22C10.3817 22 8.81782 21.6146 7.41286 20.888L3.58704 21.9553C2.92212 22.141 2.23258 21.7525 2.04691 21.0876C1.98546 20.8676 1.98549 20.6349 2.04695 20.4151L3.11461 16.5922C2.38637 15.186 2 13.6203 2 12C2 6.47715 6.47715 2 12 2ZM23 17.5C23 14.4624 20.5376 12 17.5 12C14.4624 12 12 14.4624 12 17.5C12 20.5376 14.4624 23 17.5 23C20.5376 23 23 20.5376 23 17.5ZM18.0006 18L18.0011 20.5035C18.0011 20.7797 17.7773 21.0035 17.5011 21.0035C17.225 21.0035 17.0011 20.7797 17.0011 20.5035L17.0006 18H14.4956C14.2197 18 13.9961 17.7762 13.9961 17.5C13.9961 17.2239 14.2197 17 14.4956 17H17.0005L17 14.4993C17 14.2231 17.2239 13.9993 17.5 13.9993C17.7761 13.9993 18 14.2231 18 14.4993L18.0005 17H20.4966C20.7725 17 20.9961 17.2239 20.9961 17.5C20.9961 17.7762 20.7725 18 20.4966 18H18.0006Z"></path>
+</svg></button></div>
+            <textarea value="Tạo form đăng nhập trong HTML" type="text" id="chat-input"
+                class="focus:imta-grow imta-ease-linear imta-resize-none imta-border imta-border-gray-300 imta-rounded-md imta-px-4 imta-py-2 imta-transition-all imta-outline-none imta-w-5/6"
+                placeholder="Type your message..."></textarea>
+                <div class="imta-text-center">
+                  <p id="rangeText" class="imta-pb-1"><p>
+                  <button id="chat-submit"
+                  class="imta-bg-gray-800 imta-text-white imta-rounded-md imta-px-4 imta-py-2 imta-cursor-pointer"><i style='font-size:24px' class='far'>&#xf1d8;</i>
+                </button>
+                </div>
         </div>
     </div>
 </div>
@@ -205,19 +264,54 @@ font-size: 12px;
         const closePopup = document.getElementById("close-popup");
         const moreChatDiv = document.querySelector(".imta-more_chat");
         const button__style = document.querySelectorAll(".button__style");
-
+        const rangeText = document.querySelector("#rangeText");
+        const chatHeader = document.querySelector("#chat-header");
+        const chatMessage = document.querySelectorAll("#imta-chat-message");
         chatInput.addEventListener("focus", function () {
           moreChatDiv.style.display = "none";
         });
-        button__style.forEach((button) => {
-          button.addEventListener("click", (e) => {
-            e.target.classList.toggle("button_active");
-            button__style.forEach((btn) => {
-              btn.classList.remove("button_active");
+        const styles = ["theme1", "theme2", "theme3"];
+        button__style.forEach((button, index) => {
+          const style = styles[index];
+
+          document.addEventListener("DOMContentLoaded", function () {
+            button.addEventListener("click", (e) => {
+              button__style.forEach((btn) => {
+                btn.classList.remove(...styles);
+              });
+              chatSubmit.classList.remove(...styles);
+              chatSubmit.classList.add(style);
+              moreChatDiv.classList.remove(...styles);
+              moreChatDiv.classList.add(style);
+              button.classList.add(style);
+              chatMessage.forEach((ele) => {
+                ele.classList.remove(...styles);
+              });
+
+              chatHeader.classList.remove(...styles);
+
+              chatMessage.forEach((ele) => {
+                ele.classList.add(style);
+              });
+
+              chatHeader.classList.add(style);
             });
-            button.classList.toggle("button_active");
           });
         });
+
+        let maxCharacter = 5000;
+
+        const len = chatInput.value.length;
+        chatInput.addEventListener("input", (e) => {
+          let len = e.target.value.length;
+          if (len > maxCharacter) {
+            e.target.value = e.target.value.slice(0, maxCharacter);
+            len = maxCharacter;
+          }
+          rangeText.innerHTML = `${len}/${maxCharacter}`;
+        });
+        rangeText.innerHTML = `${len}/${maxCharacter}`;
+
         chatInput.addEventListener("blur", function () {
           moreChatDiv.style.display = "block";
         });
@@ -237,8 +331,14 @@ font-size: 12px;
             chatSubmit.click();
           }
         });
+        document.addEventListener("click", (e) => {
+          if (!chatPopup.contains(e.target) && !chatBubble.contains(e.target)) {
+            chatPopup.classList.add("imta-hidden");
 
-        chatBubble.addEventListener("click", function () {
+            chatBubble.classList.remove("imta-hidden");
+          }
+        });
+        chatBubble.addEventListener("click", function (e) {
           togglePopup();
         });
 
@@ -263,7 +363,7 @@ font-size: 12px;
           const messageElement = document.createElement("div");
           messageElement.className = "imta-flex imta-justify-end imta-mb-3";
           messageElement.innerHTML = `
-<div class="imta-bg-gray-800 imta-text-white imta-rounded-lg imta-py-2 imta-px-4 imta-max-w-[70%]">
+<div id="imta-chat-message" class=" imta-bg-gray-800 imta-text-white imta-rounded-lg imta-py-2 imta-px-4 imta-max-w-[70%]">
     ${message}
 </div>
 `;
